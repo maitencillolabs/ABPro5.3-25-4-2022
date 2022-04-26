@@ -28,10 +28,28 @@ function traer() {
             <h3 class="mb-0">${e.title}</h3>
             <div class="mb-1 text-muted">${e.id}</div>
             <p class="card-text mb-auto">${e.body}</p>
-            <a href=${e.url} class="btn btn-outline-success">Continuar Leyendo</a>
-            <button class="btn btn-outline-warning" onclick = "agregarFavorito('${e.title}')">Agregar a Favoritos</button>
+            <a class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal${e.id}">Continuar Leyendo</a>
             </div>
-      </div>
-  </div>`
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal${e.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">${e.title}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  <p>${e.body}</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>`
   })
   }
